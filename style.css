@@ -1,18 +1,33 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
 body{
-    background:linear-gradient(90deg,rgb(0,255,255),rgb(100,100,100), rgb(0,255,255));
+    background:#202020;
+    color: white;
+    font-family: 'Roboto', sans-serif;
 }
+
 h1{
+    font-weight: 700;
     text-align: center;
     font-size: 4em;
     margin: 1%;
+    background-image: linear-gradient(90deg,#2ffec9,#01dfd7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /*color:linear-gradient(90deg,rgb(100,100,100), white,rgb(100,100,100));*/
 }
-main p{
+header p{
     width: 30%;
     text-align: center;
     font-weight: bold;
     font-size: 4em;
     margin: 1% auto;
+}
+main{
+    display:flex;
+    flex-direction: row;
+    align-items: flex-end;
 }
 section{
     padding-left: 5%;
@@ -23,21 +38,71 @@ section{
     display: block;
     font-size: 2em;
     font-weight: bold;
-    margin: 0 15% 2% 15%;
+    text-align: center;
 }
 .container{
     font-size: 1.3em;
     width: 100%;
     height: 30vh;
+    padding: 0.5rem;
+    background: transparent;
+    border: 0.25rem solid #2ffec9;
+    border-radius:  0.5rem;
+    color: white;
 }
-.button{
+.container:focus{
+    box-shadow: none;
+    outline: none;
+    border-color: #015adf;
+}
+.container:hover{
+    cursor: pointer;
+}
+.section-button{
     width: auto;
+    display: flex;
+    flex-direction: column;
 }
-#output{
-    font-size: 1.3em;
+.section-button p{
+    color: #01dfd7;
+    text-align: center;
+}
+.section-button div{
+    gap: 0.5rem;
+    display: flex;
+}
+.section-button button{
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    flex:1;
+    background-color: #2ffec9;
+    transition: background 0.5s;
+}
+.section-button button:hover{
+    cursor: pointer;
+    background-color: #015adf;
+    transition: background 0.5s;
+}
+#img-output{
+    padding: 0.5rem;
     width: 100%;
     height: 30vh;
-    visibility: hidden;
+    object-fit: contain;
+    background: transparent;
+    border: 0.25rem solid #2ffec9;
+    border-radius:  0.5rem;
+    color: white;
+}
+.no-visible{
+    display: none;
+}
+
+div {
+    display: flex;
+    justify-content: center;
+    padding: 1%;
+
 }
 
 footer{
@@ -48,6 +113,11 @@ footer{
 footer p{
     font-style: italic;
     font-size: 1em;
-    padding-left: 5%;
-    text-align: left;
+    text-align: center;
+}
+
+footer span{
+    text-align:right;
+    font-weight: bold;
+    font-family:Arial, Helvetica, sans-serif;
 }

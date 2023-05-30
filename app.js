@@ -1,44 +1,89 @@
 
 var encriptar=document.querySelector("#encriptar");
 var desencriptar=document.querySelector("#desencriptar");
-var input=document.querySelector("#container-input");
-//var output=document.querySelector("#output");
-var output=document.querySelector("#container-output");
-/*
-texto.addEventListener("change", (event)=>{
-    console.log(event.target.value);
-})*/
+var input=document.querySelector("#text-input");
+var imgOutput=document.querySelector("#img-output");
+var output=document.querySelector("#text-output");
+var copiar=document.querySelector("#copiar");
+
+
+
+function ocultarImagen(){
+    if(output.classList.contains("no-visible")){
+        output.classList.remove("no-visible");
+        imgOutput.classList.add("no-visible");
+    }
+}
 
 function desencriptacion(){
-    let texto=input.value;
-    let resultante="";
+    const texto=input.value;
+    if(contieneMayuscula(texto)){
+        alert("El texto contiene mayusculas");
+    }else if(contieneCaracterEspecial(texto)){
+        alert("El texto contiene caracteres especiales");
+    }else{
+        ocultarImagen();
+        let resultante="";
 
-    for(let i=0;i<texto.length;i++){
-        resultante+=texto[i];
-        if(texto[i]=="a"){
-            i++;
-        }else if(texto[i]=="e"){
-            i+=4;
-        }else if(texto[i]=="i"){
-            i+=3;
-        }else if(texto[i]=="o"){
-            i+=3;
-        }else if(texto[i]=="u"){
-            i+=3;
+        for(let i=0;i<texto.length;i++){
+            resultante+=texto[i];
+            if(texto[i]=="a"){
+                i++;
+            }else if(texto[i]=="e"){
+                i+=4;
+            }else if(texto[i]=="i"){
+                i+=3;
+            }else if(texto[i]=="o"){
+                i+=3;
+            }else if(texto[i]=="u"){
+                i+=3;
+            }
         }
+        output.value=resultante;
+        
     }
-    output.value=resultante;
-    console.log(resultante);
 }
 
 function encriptacion(){
+    ocultarImagen();
     let texto=input.value;
     let resultante="";
-    for(let i=0;i<texto.length;i++){
-        resultante+=encriptarCaracter(texto[i]);
+    if(contieneMayuscula(texto)){
+        alert("El texto contiene mayusculas");
+    }else if(contieneCaracterEspecial(texto)){
+        alert("El texto contiene caracteres especiales");
+    }else{
+        for(let i=0;i<texto.length;i++){
+            resultante+=encriptarCaracter(texto[i]);
+        }
+        output.value=resultante;
     }
-    console.log(resultante);
-    output.value=resultante;
+}
+
+function contieneMayuscula(texto){
+    /*
+    let texto=input.value;
+    let i=0;
+    while(i<texto.length){
+        if(texto[i]=='A' || texto[i]=='E' || texto[i]=='I' || texto[i]=='O' || texto[i]=='U'){
+            return true;
+        }
+        i++;
+    }
+    return false;*/
+    const regexMayus=new RegExp("[A-Z]");
+    if(regexMayus.test(texto)){
+        return true;
+    }
+    return false;
+}
+
+function contieneCaracterEspecial(texto){
+    const regexCaracterEsp=/[^a-z ]/;
+    if(regexCaracterEsp.test(texto)){
+        return true;
+    }
+    return false;
 }
 function encriptarCaracter(caracter){
     if(caracter=="a"){
@@ -54,6 +99,12 @@ function encriptarCaracter(caracter){
     }
     return caracter;
 }
+
+function copiarTexto() {
+    output.select();
+    navigator.clipboard.writeText(output.value);
+  }
+
+copiar.onclick = copiarTexto;
 encriptar.onclick = encriptacion;
 desencriptar.onclick = desencriptacion;
-////////////////////// como  hago para que aparezca el resultado si no es en un textarea???????????

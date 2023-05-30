@@ -11,27 +11,37 @@
     <body>
         <header>
             <h1>Encriptador/Desencriptador</h1>
+            <p>&#8594</p>
         </header>
         <main>
-            <p>&#8594</p>
+            
             <section>
-                <label class="text" for="container-input">Ingrese el texto a Encriptar/Desencriptar</label>
-                <textarea id="container-input" class="container" placeholder="Ingrese el texto aqui"></textarea> 
+                <label class="text" for="text-input">Ingrese el texto a Encriptar/Desencriptar</label>
+                <textarea id="text-input" class="container" placeholder="Ingrese el texto aqui"></textarea> 
             </section>
-            <section class="button">
-                <button id="encriptar">Encriptar</button>
-                <button id="desencriptar">Desenctiptar</button>
+            <section class="section-button">
+                <p>No se aceptan mayusculas nicaracteres especiales</p>
+                <div>
+                    <button id="encriptar">Encriptar</button>
+                    <button id="desencriptar">Desenctiptar</button>
+                </div>
+                <div>
+                    <button id="copiar">Copiar</button>
+                </div>
             </section>
             <section >
-                <label class="text" for="container-output">Resultado del texto</label>
-                <!--<div >
-                    <img  id="output" src="imagen.avif">
-                </div>-->
-                <textarea id="container-output" class="container" placeholder="Aqui se vera el resultado del texto" readonly></textarea>
+                <label class="text" for="text-output">Resultado del texto</label>
+                <div >
+                    <img  id="img-output" src="imagen-oscura.png">
+                </div>
+                <textarea id="text-output" class="container no-visible" placeholder="Aqui se vera el resultado del texto" readonly></textarea>
+                
             </section>
+            
+            
         </main>
         <footer>
-            <p>Decodificador/Codificador creado por  &#169 Tigani Martin </p>
+            <p>Challenge Decodificador/Codificador Oracle-AluraLatam by <span> &#169 Tigani Martin</span></p>    
         </footer>
         <script src="app.js"></script>
     </body>
