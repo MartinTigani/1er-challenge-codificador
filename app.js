@@ -61,16 +61,6 @@ function encriptacion(){
 }
 
 function contieneMayuscula(texto){
-    /*
-    let texto=input.value;
-    let i=0;
-    while(i<texto.length){
-        if(texto[i]=='A' || texto[i]=='E' || texto[i]=='I' || texto[i]=='O' || texto[i]=='U'){
-            return true;
-        }
-        i++;
-    }
-    return false;*/
     const regexMayus=new RegExp("[A-Z]");
     if(regexMayus.test(texto)){
         return true;

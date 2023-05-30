@@ -15,7 +15,6 @@ h1{
     background-image: linear-gradient(90deg,#2ffec9,#01dfd7);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    /*color:linear-gradient(90deg,rgb(100,100,100), white,rgb(100,100,100));*/
 }
 header p{
     width: 30%;
